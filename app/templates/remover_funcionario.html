@@ -1,0 +1,27 @@
+<!-- BOTÃO REMOVER FUNCIONÁRIO-->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% block title %}Remover Funcionário{% endblock %}
+
+{% block content %}
+<div class="card">
+	<div class="card-body">
+		<h2 class="card-title">Remover Funcionário</h2>
+		<ul class="list-unstyled">
+			<li><strong>Nome:</strong> {{ funcionario.nome }}</li>
+			<li><strong>CPF:</strong> {{ funcionario.cpf }}</li>
+			<li><strong>E-mail:</strong> {{ funcionario.email }}</li>
+			<li><strong>Remuneração:</strong> R${{ funcionario.remuneracao|floatformat:2 }}</li>
+		</ul>
+
+		<form method="post">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-danger">Confirmar remoção</button>
+			<a href="javascript:history.back()" class="btn btn-secondary ms-2">Cancelar</a>
+		</form>
+	</div>
+</div>
+{% endblock %}

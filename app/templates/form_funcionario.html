@@ -1,0 +1,23 @@
+<!-- FORMULÁRIO DE CADASTRO FUNCIONÁRIO -->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% load django_bootstrap5 %}
+{% block title %}Formulário de Funcionários{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Formulário de Funcionário</h1>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href="javascript:history.back()" class="btn btn-secondary ms-2">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
